@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AT2_CS.BusinessLogicLayer;
 using AT2_CS.PresentationLayer.StudentPL;
+using System.Reflection.PortableExecutable;
 
 
 namespace AT2_CS.PresentationLayer.ReportPL
@@ -80,6 +81,17 @@ namespace AT2_CS.PresentationLayer.ReportPL
             }
         }
 
+        public void CsvToDatabase() {
+    
+            var students = new List<StudentModel>();
+            string csvFilePath = @"C:\Users\ASUS TUF\OneDrive\เดสก์ท็อป\ASSESMENT_CER4\AT2\C#_24_11_2024\Student_CSV.csv";
+            var CSVData = File.ReadLines(csvFilePath);
 
+            var reportBLL = new ReportBLL();
+            var result = reportBLL.insertCSV(CSVData);
+
+        
+    }
+   
     }
 }

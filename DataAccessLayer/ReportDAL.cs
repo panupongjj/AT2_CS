@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 using System.Data;
+using System.Numerics;
 
 namespace AT2_CS.DataAccessLayer
 {
@@ -91,7 +92,54 @@ namespace AT2_CS.DataAccessLayer
             Connection.Close();
             return reportModel;
         }
+        public bool InsertTODataBase(dynamic CSVData)
+        {
+            //var students = new List<StudentModel>();
+            Connection.Open();
+           // var command = Connection.CreateCommand();
+            foreach (var line in CSVData)
+            {
+                var values = line.Split(',');
+                if (values.Length == 8) //
+                {
+                    if ((values[0]).ToString() == "StudentId")
+                    {
+                        continue;
+                    }
 
+                    var studentId = int.Parse(values[0]);
+                    var studentFullName = (values[1]).ToString();
+                    var studentPhone = int.Parse((values[2]).ToString().Replace(" ", ""));
+                    var studentEmail = (values[3]).ToString();
+                    var studentDoB = DateTime.Parse(values[4]);
+                    var studentEnrolmentDate = DateTime.Parse(values[5]);
+                    var studentEnrolmentCert = (values[6]).ToString();
+                    var studentTotalScore = decimal.Parse(values[7]);
+
+                    //students.Add(new StudentModel(studentId, studentFullName, studentPhone, studentEmail, studentDoB, studentEnrolmentDate, studentEnrolmentCert, studentTotalScore));
+                    var insertCommand = new SqlCommand(
+                           @"INSERT INTO Student
+                    (FullName, Phone, Email, DoB, EnrolmentDate, EnrolmentCert, TotalScore)
+                    VALUES(@b, @c, @d, @e, @f, @g, @h)", Connection);
+
+                    //command.Parameters.AddWithValue("a", student.StudentId);
+                    insertCommand.Parameters.AddWithValue("b", studentFullName);
+                    insertCommand.Parameters.AddWithValue("c", studentPhone);
+                    insertCommand.Parameters.AddWithValue("d", studentEmail);
+                    insertCommand.Parameters.AddWithValue("e", studentDoB);
+                    insertCommand.Parameters.AddWithValue("f", studentEnrolmentDate);
+                    insertCommand.Parameters.AddWithValue("g", studentEnrolmentCert);
+                    insertCommand.Parameters.AddWithValue("h", studentTotalScore);
+
+                    // execute the query
+                    insertCommand.ExecuteNonQuery();
+                    
+                }
+            }
+            Connection.Close();
+            Console.WriteLine("Data loaded from CSV file and stored in SQL Server database.");
+            return true;
+        }
 
     }
 }

@@ -23,6 +23,13 @@ namespace AT2_CS.BusinessLogicLayer
         {
             return appDAL.ReportDALInstance.ReadByID(id);
         }
+        public bool insertCSV(dynamic CSVData)
+        {
+            if (CSVData == null) { 
+                return false;
+            }
+            return appDAL.ReportDALInstance.InsertTODataBase(CSVData);
+        }
 
 
     }

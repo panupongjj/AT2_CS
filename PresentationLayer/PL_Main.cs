@@ -208,7 +208,7 @@ namespace AT2_CS.PresentationLayer
                                     Console.ReadLine();
                                     break;
                                 case 3:
-                                    //import
+                                    (new Report_CRUD()).CsvToDatabase();
                                     Console.WriteLine("\nPress enter to continue . . . .");
                                     Console.ReadLine();
                                     break;
