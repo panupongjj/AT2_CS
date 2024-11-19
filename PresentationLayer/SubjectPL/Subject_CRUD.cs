@@ -54,7 +54,7 @@ namespace AT2_CS.PresentationLayer.EnrolmentPL
             var Result = subjectBLL.GetOne(subject.SubjectId);
             if (Result == null)
             {
-                Console.WriteLine($"Subject({Result.SubjectId}) does not exist");
+                Console.WriteLine($"Subject({subject.SubjectId}) does not exist");
             }
             else
             {

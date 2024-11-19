@@ -17,7 +17,15 @@ namespace AT2_CS.DataAccessLayer
         // private constructor
         public AppDAL() {
             // create the ADO.net sqlite connection
-            Connection = new SqlConnection(AT2_CS_DataBase.ConnectionString);
+            try
+            {
+                Connection = new SqlConnection(AT2_CS_DataBase.ConnectionString);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An unexpected error occurred: " + ex.Message);
+            }
+            
 
             // create all DAL instances
             StudentDALInstance = new StudentDAL(Connection);

@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+using System.Data;
 
 namespace AT2_CS.DataAccessLayer
 {
@@ -21,22 +23,28 @@ namespace AT2_CS.DataAccessLayer
         // create
         public void Create(EnrolmentModel Enrolment)
         {
+
             Connection.Open();
-            // build the query commandnamespace AT2_CS.DataAccessLayer
             var command = Connection.CreateCommand();
             command.CommandText = @"
-                INSERT INTO Enrolment
-                (StudentId_FK,SubjectId_FK)
-                VALUES(@b,@c)
-            ";
+            INSERT INTO EnrolmentEEE
+            (StudentId_FK,SubjectId_FK)
+            VALUES(@b,@c)";
 
             command.Parameters.AddWithValue("b", Enrolment.StudentId_FK);
             command.Parameters.AddWithValue("c", Enrolment.SubjectId_FK);
 
-            // execute the query
-            command.ExecuteReader();
-
+            try
+            {   // execute the query
+                command.ExecuteReader();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An unexpected error occurred: " + ex.Message);
+            }
+            
             Connection.Close();
+
         }
 
         public EnrolmentModel Read(int Id)
