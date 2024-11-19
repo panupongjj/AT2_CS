@@ -213,7 +213,7 @@ namespace AT2_CS.PresentationLayer
                                     Console.ReadLine();
                                     break;
                                 case 4:
-                                    //export
+                                    (new Report_CRUD()).DatabaseToCsv();
                                     Console.WriteLine("\nPress enter to continue . . . .");
                                     Console.ReadLine();
                                     break;
@@ -230,7 +230,14 @@ namespace AT2_CS.PresentationLayer
                             }
                         }
                         break;
-                    
+                    case 5:
+                        DisconnectedModeClass ds = new DisconnectedModeClass();
+                        ds.Disconnected();
+                        Console.WriteLine("\nPress enter to continue . . . .");
+                        Console.ReadLine();
+                        break;
+
+
                     case 0:
                         checke = false;
                         break;

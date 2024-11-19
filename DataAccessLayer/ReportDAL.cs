@@ -140,6 +140,33 @@ namespace AT2_CS.DataAccessLayer
             Console.WriteLine("Data loaded from CSV file and stored in SQL Server database.");
             return true;
         }
+        public List<StudentModel> ReadAllStudent()
+        {
+            var students = new List<StudentModel>();
 
+            Connection.Open();
+
+            // build the query command
+            var command = Connection.CreateCommand();
+            command.CommandText = @"SELECT * FROM Student";
+
+            // execute the query
+            var reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                var studentId = reader.GetInt32(0);
+                var studentFullName = reader.GetString(1);
+                var studentPhone = reader.GetInt32(2);
+                var studentEmail = reader.GetString(3);
+                var studentDoB = reader.GetDateTime(4);
+                var studentEnrolmentDate = reader.GetDateTime(5);
+                var studentEnrolmentCert = reader.GetString(6);
+                var studentTotalScore = reader.GetDecimal(7);
+                students.Add(new StudentModel(studentId, studentFullName, studentPhone, studentEmail, studentDoB, studentEnrolmentDate, studentEnrolmentCert, studentTotalScore));
+            }
+            Connection.Close();
+            return students;
+        }
     }
 }

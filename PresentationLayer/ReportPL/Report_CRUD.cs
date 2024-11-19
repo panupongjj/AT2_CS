@@ -7,7 +7,9 @@ using System.Threading.Tasks;
 using AT2_CS.BusinessLogicLayer;
 using AT2_CS.PresentationLayer.StudentPL;
 using System.Reflection.PortableExecutable;
-
+using System.Formats.Asn1;
+using System.Globalization;
+using CsvHelper;
 
 namespace AT2_CS.PresentationLayer.ReportPL
 {
@@ -89,9 +91,45 @@ namespace AT2_CS.PresentationLayer.ReportPL
 
             var reportBLL = new ReportBLL();
             var result = reportBLL.insertCSV(CSVData);
+        }
 
-        
-    }
-   
+        public void DatabaseToCsv(int onlyIdAndName = 0)
+        {
+            var reportBLL = new ReportBLL();
+            Console.WriteLine("Getting all students");
+          
+            var result = reportBLL.exportCSV();
+            string csvFilePath2 = @"C:\Users\ASUS TUF\OneDrive\เดสก์ท็อป\ASSESMENT_CER4\AT2\C#_24_11_2024\Student_dump.csv"; ; // adjust the path
+            using (var csvWriter = new CsvWriter(new StreamWriter(csvFilePath2), CultureInfo.InvariantCulture)) {
+                
+                // Write CSV header
+                csvWriter.WriteHeader<StudentModel>();
+                csvWriter.NextRecord();
+
+                // Write data to CSV
+                foreach (var item in result)
+                {
+                    var record = new StudentModel
+                    {
+                        StudentId = item.StudentId,
+                        FullName = item.FullName,
+                        Phone = item.Phone,
+                        Email = item.Email,
+                        DoB = item.DoB,
+                        EnrolmentDate = item.EnrolmentDate,
+                        EnrolmentCert = item.EnrolmentCert,
+                        TotalScore = item.TotalScore,
+                    };
+
+                    csvWriter.WriteRecord(record);
+                    csvWriter.NextRecord();
+                }
+                
+            }
+
+            Console.WriteLine("Data saved from SQL Server database to CSV file.");
+
+        }
+
     }
 }

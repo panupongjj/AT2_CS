@@ -43,6 +43,7 @@ namespace AT2_CS.PresentationLayer
             Console.WriteLine("\t 2. Subject Management system");
             Console.WriteLine("\t 3. Enrolment Management system");
             Console.WriteLine("\t 4. Report Management system");
+            Console.WriteLine("\t 5. DisconnectedMode");
             Console.WriteLine("\n\t ----------------------");
             Console.WriteLine("\t 0. Exit The Program");
             Console.WriteLine(symL);

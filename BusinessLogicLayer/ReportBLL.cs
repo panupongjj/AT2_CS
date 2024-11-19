@@ -30,7 +30,10 @@ namespace AT2_CS.BusinessLogicLayer
             }
             return appDAL.ReportDALInstance.InsertTODataBase(CSVData);
         }
-
+        public List<StudentModel> exportCSV()
+        {
+            return appDAL.ReportDALInstance.ReadAllStudent();
+        }
 
     }
 }
