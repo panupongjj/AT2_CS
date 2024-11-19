@@ -18,7 +18,7 @@ namespace AT2_CS.Models
         {
             SubjectId = 0;
             SubjectName = "";
-
+            
         }
 
         public SubjectModel(int subjectId, string subjectName)

@@ -1,10 +1,13 @@
-﻿namespace AT2_CS
+﻿using AT2_CS.PresentationLayer;
+
+namespace AT2_CS
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            (new PL_Main()).RUN();
+
         }
     }
 }
