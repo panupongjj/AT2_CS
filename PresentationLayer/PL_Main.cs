@@ -5,7 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using AT2_CS.BusinessLogicLayer;
 using AT2_CS.PresentationLayer.EnrolmentPL;
+using AT2_CS.PresentationLayer.StudentPL;
 using AT2_CS.PresentationLayer.SubjectPL;
+using AT2_CS.PresentationLayer.ReportPL;
 namespace AT2_CS.PresentationLayer
 {
     public class PL_Main
@@ -17,6 +19,7 @@ namespace AT2_CS.PresentationLayer
             StudentMenagementMenu studenMenu = new StudentMenagementMenu("/", "Student Management system");
             SubjectMenagementMenu subjectMenu = new SubjectMenagementMenu("*", "Subject Management system");
             EnrolmentMenagementMenu enrolmentMenu = new EnrolmentMenagementMenu("-", "Enrolment Management System");
+            ReportMenagementMenu reportlmentMenu = new ReportMenagementMenu("-", "Report Management System");
 
             //General Class
             GeneralMethodBLL gnMt = new GeneralMethodBLL();
@@ -134,7 +137,6 @@ namespace AT2_CS.PresentationLayer
                         }
                         break;
 
-
                     case 3:
                         //Display Management system
                         checkb_sub = true;
@@ -184,10 +186,60 @@ namespace AT2_CS.PresentationLayer
                             }
                         }
                         break;
+                    case 4:
+                        //Display Students Data System
+                        checkb_sub = true;
+                        while (checkb_sub)
+                        {
+                            Console.Clear();
+                            reportlmentMenu.displayMenu();
+                            strPrint = ("Enter the select number: ");
+                            userInput_sub = gnMt.inputIntChecker(strPrint);
+                            switch (userInput_sub)
+                            {
+                                case 1:
+                                    (new Report_CRUD()).Add();
+                                    Console.WriteLine("\nPress enter to continue . . . .");
+                                    Console.ReadLine();
+                                    break;
+                                case 2:
+                                    (new Report_CRUD()).Update();
+                                    Console.WriteLine("\nPress enter to continue . . . .");
+                                    Console.ReadLine();
+                                    break;
+                                case 3:
+                                    (new Report_CRUD()).Delete();
+                                    Console.WriteLine("\nPress enter to continue . . . .");
+                                    Console.ReadLine();
+                                    break;
+                                case 4:
+                                    (new Report_CRUD()).View();
+                                    Console.WriteLine("\nPress enter to continue . . . .");
+                                    Console.ReadLine();
+                                    break;
+                                case 5:
+                                    (new Report_CRUD()).ViewbyID("VIEW");
+                                    Console.WriteLine("\nPress enter to continue . . . .");
+                                    Console.ReadLine();
+                                    break;
+                                case 9:
+                                    checkb_sub = false;
+                                    break;
+                                case 0:
+                                    checkb_sub = false;
+                                    checke = false;
+                                    break;
+                                default:
+                                    break;
 
+                            }
+                        }
+                        break;
+                    
                     case 0:
                         checke = false;
                         break;
+                    
                     default:
                         break;
 

@@ -42,6 +42,7 @@ namespace AT2_CS.PresentationLayer
             Console.WriteLine("\t 1. Student Management system");
             Console.WriteLine("\t 2. Subject Management system");
             Console.WriteLine("\t 3. Enrolment Management system");
+            Console.WriteLine("\t 4. Report Management system");
             Console.WriteLine("\n\t ----------------------");
             Console.WriteLine("\t 0. Exit The Program");
             Console.WriteLine(symL);
@@ -148,6 +149,40 @@ namespace AT2_CS.PresentationLayer
 
         }
 
+
+
     }
+        class ReportMenagementMenu : Display
+        {
+            string manuName;
+            string manuSymbol;
+            public ReportMenagementMenu(string manuSymbol, string manuName)
+            {
+                this.manuName = manuName;
+                this.manuSymbol = manuSymbol;
+            }
+            public override void displayMenu()
+            {
+                Console.Clear();
+                string symL = string.Concat(Enumerable.Repeat(this.manuSymbol, 49));
+                string symS = string.Concat(Enumerable.Repeat(this.manuSymbol, 10));
+                string text = "[ " + this.manuName + " ]";
+                Console.WriteLine(symL);
+                Console.WriteLine(symS + text + symS);
+                Console.WriteLine(symL);
+                Console.WriteLine("\t 1. Enroment Report");
+                Console.WriteLine("\t 2. Email Notification");
+                Console.WriteLine("\t 3. Import CSV to Database");
+                Console.WriteLine("\t 4. Export Database to CSV");
+                Console.WriteLine("\t 5. View Student Data By ID");
+                Console.WriteLine("\n\t ----------------------");
+                Console.WriteLine("\t 9. Back To Previous Menu");
+                Console.WriteLine("\t 0. Exit The Program");
+                Console.WriteLine(symL);
+
+
+            }
+
+        }
 
 }

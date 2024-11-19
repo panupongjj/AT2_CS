@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using AT2_CS.BusinessLogicLayer;
 using System.Xml.Linq;
 using AT2_CS.PresentationLayer.SubjectPL;
+using AT2_CS.PresentationLayer.StudentPL;
 
 
 namespace AT2_CS.PresentationLayer.EnrolmentPL

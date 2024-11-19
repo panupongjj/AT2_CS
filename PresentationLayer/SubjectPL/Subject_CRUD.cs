@@ -10,7 +10,7 @@ using System.Xml.Linq;
 
 
 
-namespace AT2_CS.PresentationLayer.EnrolmentPL
+namespace AT2_CS.PresentationLayer.SubjectPL
 {
     public class Subject_CRUD
     {

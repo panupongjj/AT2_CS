@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 using AT2_CS.BusinessLogicLayer;
 
 
-namespace AT2_CS.PresentationLayer.StudentPL
+namespace AT2_CS.PresentationLayer.ReportPL
 {
-    public class Student_CRUD
+    public class Report_CRUD
     {
         GeneralMethodBLL gnMt = new GeneralMethodBLL();
 
