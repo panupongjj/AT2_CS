@@ -13,6 +13,8 @@ namespace AT2_CS.DataAccessLayer
         public StudentDAL StudentDALInstance;
         public SubjectDAL SubjectDALInstance;
         public EnrolmentDAL EnrolmentDALInstance;
+        public ReportDAL ReportDALInstance;
+
 
         // private constructor
         public AppDAL() {
@@ -31,6 +33,7 @@ namespace AT2_CS.DataAccessLayer
             StudentDALInstance = new StudentDAL(Connection);
             SubjectDALInstance = new SubjectDAL(Connection);
             EnrolmentDALInstance = new EnrolmentDAL(Connection);
+            ReportDALInstance = new ReportDAL(Connection);
             // student todo:
             // implement the EnrollmentDAL class and create a instance here 
         }

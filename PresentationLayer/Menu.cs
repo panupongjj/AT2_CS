@@ -174,7 +174,6 @@ namespace AT2_CS.PresentationLayer
                 Console.WriteLine("\t 2. Email Notification");
                 Console.WriteLine("\t 3. Import CSV to Database");
                 Console.WriteLine("\t 4. Export Database to CSV");
-                Console.WriteLine("\t 5. View Student Data By ID");
                 Console.WriteLine("\n\t ----------------------");
                 Console.WriteLine("\t 9. Back To Previous Menu");
                 Console.WriteLine("\t 0. Exit The Program");

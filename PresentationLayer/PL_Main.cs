@@ -198,27 +198,22 @@ namespace AT2_CS.PresentationLayer
                             switch (userInput_sub)
                             {
                                 case 1:
-                                    (new Report_CRUD()).Add();
-                                    Console.WriteLine("\nPress enter to continue . . . .");
-                                    Console.ReadLine();
-                                    break;
-                                case 2:
-                                    (new Report_CRUD()).Update();
-                                    Console.WriteLine("\nPress enter to continue . . . .");
-                                    Console.ReadLine();
-                                    break;
-                                case 3:
-                                    (new Report_CRUD()).Delete();
-                                    Console.WriteLine("\nPress enter to continue . . . .");
-                                    Console.ReadLine();
-                                    break;
-                                case 4:
                                     (new Report_CRUD()).View();
                                     Console.WriteLine("\nPress enter to continue . . . .");
                                     Console.ReadLine();
                                     break;
-                                case 5:
-                                    (new Report_CRUD()).ViewbyID("VIEW");
+                                case 2:
+                                    (new Report_CRUD()).Email();
+                                    Console.WriteLine("\nPress enter to continue . . . .");
+                                    Console.ReadLine();
+                                    break;
+                                case 3:
+                                    //import
+                                    Console.WriteLine("\nPress enter to continue . . . .");
+                                    Console.ReadLine();
+                                    break;
+                                case 4:
+                                    //export
                                     Console.WriteLine("\nPress enter to continue . . . .");
                                     Console.ReadLine();
                                     break;

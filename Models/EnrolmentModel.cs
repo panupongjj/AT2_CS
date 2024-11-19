@@ -22,9 +22,9 @@ namespace AT2_CS.Models
             SubjectId_FK = 0;
         }
 
-        public EnrolmentModel(int ID, int studentId_FK, int subjectId_FK)
+        public EnrolmentModel(int id, int studentId_FK, int subjectId_FK)
         {
-            ID = ID;
+            ID = id;
             StudentId_FK = studentId_FK;
             SubjectId_FK = subjectId_FK;
         }

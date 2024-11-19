@@ -75,11 +75,13 @@ namespace AT2_CS.PresentationLayer.EnrolmentPL
             string strPrint = "";
 
             int onlyIdAndName = 1;
+            Student_CRUD student = new Student_CRUD();
+            student.View(onlyIdAndName);
+
             Subject_CRUD Subject = new Subject_CRUD();
             Subject.View(onlyIdAndName);
 
-            Student_CRUD student = new Student_CRUD();
-            student.View(onlyIdAndName);
+
 
             Console.WriteLine("Creating a new enrolment");
 

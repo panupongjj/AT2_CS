@@ -27,7 +27,7 @@ namespace AT2_CS.DataAccessLayer
             Connection.Open();
             var command = Connection.CreateCommand();
             command.CommandText = @"
-            INSERT INTO EnrolmentEEE
+            INSERT INTO Enrolment
             (StudentId_FK,SubjectId_FK)
             VALUES(@b,@c)";
 
@@ -66,7 +66,7 @@ namespace AT2_CS.DataAccessLayer
             {
                 var ID = reader.GetInt32(0);
                 var studentId_FK = reader.GetInt32(1);
-                var subjectId_FK = reader.GetInt32(1);
+                var subjectId_FK = reader.GetInt32(2);
 
                 Enrolment = new EnrolmentModel(ID, studentId_FK, subjectId_FK);
             }
@@ -95,6 +95,7 @@ namespace AT2_CS.DataAccessLayer
                 var ID = reader.GetInt32(0);
                 var studentId_FK = reader.GetInt32(1);
                 var subjectId_FK = reader.GetInt32(2);
+
                 enrolments.Add(new EnrolmentModel(ID, studentId_FK, subjectId_FK));
 
             }
